@@ -3,7 +3,7 @@
 
 #include <gtk/gtk.h>
 #include <gdk/gdkkeysyms.h>
-#include <webkit/webkit.h>
+#include <webkit2/webkit2.h>
 
 gboolean on_key_press(GtkWidget*, GdkEventKey*, gpointer);
 
@@ -14,7 +14,7 @@ void unmaximize();
 
 static WebKitWebView* web_view;
 static GtkWidget *window;
-gchar* default_url = "https://github.com/pschultz/kiosk-browser/blob/master/README.md";
+gchar* default_url = "https://github.com/ant9000/kiosk-browser/blob/master/README.md";
 
 int main(int argc, char** argv) {
   gtk_init(&argc, &argv);
@@ -46,14 +46,14 @@ int main(int argc, char** argv) {
 }
 
 gboolean on_key_press(GtkWidget* window, GdkEventKey* key, gpointer userdata) {
-  if(key->type == GDK_KEY_PRESS && key->keyval == GDK_F5) {
+  if(key->type == GDK_KEY_PRESS && key->keyval == GDK_KEY_F5) {
     reload_browser(0);
   }
-  else if(key->type == GDK_KEY_PRESS && key->keyval == GDK_F11) {
+  else if(key->type == GDK_KEY_PRESS && key->keyval == GDK_KEY_F11) {
     toggle_fullscreen(0);
   }
 
-  return FALSE;
+  return TRUE;
 }
 
 void reload_browser(int signum) {

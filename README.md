@@ -3,8 +3,9 @@ It's intended use is to display a single web resource non-interactively,
 while being highly portable, especially to the arm11 architecture (used for the Raspberry Pi), and supporting Javascript and HTML5 Websockets for dynamic content updates.
 
 # COMPILING
-    apt-get install libwebkit-dev
-    # OR: yum install webkitgtk-devel
+On Debian 12:
+
+    apt-get install libgtk-3-dev libwebkit2gtk-4.1-dev
     make
 
 # INSTALLING
